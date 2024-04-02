@@ -106,6 +106,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -115,10 +128,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 3557
-        width: 1329
-        height: 539
+        width: 230
+        height: 429
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -136,10 +149,10 @@ TextureImporter:
         serializedVersion: 2
         x: 1489
         y: 3607
-        width: 559
-        height: 489
+        width: 310
+        height: 326
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,27 +160,6 @@ TextureImporter:
       bones: []
       spriteID: 95629b0ea79c6d84981c9dafeca061b1
       internalID: -1669777412
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sactx-0-2048x4096-Crunch-Area01_Atlas02-a10893be_2
-      rect:
-        serializedVersion: 2
-        x: 1561
-        y: 3911
-        width: 8
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0516958f2677d604ca932063831755c1
-      internalID: -1169289194
       vertices: []
       indices: 
       edges: []
@@ -181,7 +173,7 @@ TextureImporter:
         width: 288
         height: 332
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,7 +194,7 @@ TextureImporter:
         width: 154
         height: 108
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -223,7 +215,7 @@ TextureImporter:
         width: 498
         height: 334
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -244,7 +236,7 @@ TextureImporter:
         width: 226
         height: 378
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -265,7 +257,7 @@ TextureImporter:
         width: 258
         height: 158
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -283,10 +275,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 3128
-        width: 1459
+        width: 767
         height: 433
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -304,10 +296,10 @@ TextureImporter:
         serializedVersion: 2
         x: 1461
         y: 3013
-        width: 587
-        height: 304
+        width: 328
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -328,7 +320,7 @@ TextureImporter:
         width: 288
         height: 201
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -349,7 +341,7 @@ TextureImporter:
         width: 965
         height: 608
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -367,10 +359,10 @@ TextureImporter:
         serializedVersion: 2
         x: 965
         y: 2525
-        width: 1083
+        width: 892
         height: 498
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -391,7 +383,7 @@ TextureImporter:
         width: 1318
         height: 2048
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -399,6 +391,111 @@ TextureImporter:
       bones: []
       spriteID: ce1f643852f5ce84b9c708054e765272
       internalID: 143728738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map01_Area01_Atlas2_0
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 3132
+        width: 689
+        height: 357
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f881d854321fb5544b611a83e5c73db8
+      internalID: -1202908774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map01_Area01_Atlas2_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2041
+        width: 2048
+        height: 481
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58154a3fa4da0c94e8da5fca23e9505c
+      internalID: -1931916225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map01_Area01_Atlas2_2
+      rect:
+        serializedVersion: 2
+        x: 1322
+        y: 1462
+        width: 395
+        height: 481
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a46d7b470a19b3446b567f1a50216946
+      internalID: 2140049625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map01_Area01_Atlas2_3
+      rect:
+        serializedVersion: 2
+        x: 1322
+        y: 0
+        width: 538
+        height: 517
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d88669d1edb27764d8d702618cf536b0
+      internalID: -461060474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map01_Area01_Atlas2_4
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 517
+        width: 628
+        height: 389
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5124e1391ae416644be592fb0d214216
+      internalID: -393867996
       vertices: []
       indices: 
       edges: []
@@ -414,6 +511,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Map01_Area01_Atlas2_0: -1202908774
+      Map01_Area01_Atlas2_1: -1931916225
+      Map01_Area01_Atlas2_2: 2140049625
+      Map01_Area01_Atlas2_3: -461060474
+      Map01_Area01_Atlas2_4: -393867996
       sactx-0-2048x4096-Crunch-Area01_Atlas02-a10893be_0: 487683630
       sactx-0-2048x4096-Crunch-Area01_Atlas02-a10893be_1: -1669777412
       sactx-0-2048x4096-Crunch-Area01_Atlas02-a10893be_10: -188030388

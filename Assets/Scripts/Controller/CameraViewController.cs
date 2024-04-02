@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace HiddenObject.GamePlay
+namespace OjbectHunt.GamePlay
 {
     public class CameraViewController : MonoBehaviour
     {
