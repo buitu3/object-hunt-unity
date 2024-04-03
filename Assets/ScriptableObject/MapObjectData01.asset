@@ -13,7 +13,4 @@ MonoBehaviour:
   m_Name: MapObjectData01
   m_EditorClassIdentifier: 
   ObjectDict:
-    m_keys: 0000000001000000
-    m_values:
-    - {fileID: 2146890971756559242, guid: 15f27631ee8fd6f499f720d2fe28a68f, type: 3}
-    - {fileID: 2146890971756559242, guid: ae42df6d913794842bd4366285e590e5, type: 3}
+    m_keys: 
