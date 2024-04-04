@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BG
+    uniqueID: 793442573
+    locked: 0
+  - name: BackDecor
+    uniqueID: 1235661717
+    locked: 0
+  - name: HiddenObject
+    uniqueID: 561985177
+    locked: 0
+  - name: FrontDecor
+    uniqueID: 1973248351
+    locked: 0

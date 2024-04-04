@@ -9,15 +9,11 @@ namespace OjbectHunt.Map
     {
         [SerializeField]
         private Transform HiddenObjectContainer;
+        
+        [SerializeField]
+        private SerializableDictionary<int, List<HiddenObject>> ObjectDict;
 
         private int AreaIndex;
-        private Dictionary<int, HiddenObject> ObjectDict;
-
-        private void Awake()
-        {
-            ObjectDict = new Dictionary<int, HiddenObject>();
-            
-            
-        }
+        
     }
 }

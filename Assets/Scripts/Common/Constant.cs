@@ -4,9 +4,8 @@ using UnityEngine;
 
 namespace OjbectHunt.Common
 {
-    public static class EventID
+    public static class Constant
     {
-        public const string ON_HIDDEN_OBJECT_FOUND = "OnHiddenObjectFound";
+        public const string EVENT_DATA_KEY = "EventData";
     }
 }
-
