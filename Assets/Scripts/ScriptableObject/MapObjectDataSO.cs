@@ -11,6 +11,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MapObjectData", menuName = "ScriptableObjects/CreateMapObjectDataSO", order = 1)]
 public class MapObjectDataSO : ScriptableObject
 {
+    
     public SerializableDictionary<int, HiddenObjectData> ObjectDict;
 
     [Button(ButtonSizes.Large), GUIColor(0, 1, 0)]
@@ -48,7 +49,8 @@ public class MapObjectDataSO : ScriptableObject
     }
 }
 
-public struct HiddenObjectData
+[Serializable]
+public class HiddenObjectData
 {
     [PreviewField]
     public Sprite ObjectPreview;

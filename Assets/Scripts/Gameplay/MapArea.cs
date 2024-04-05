@@ -7,11 +7,9 @@ namespace OjbectHunt.Map
 {
     public class MapArea : MonoBehaviour
     {
-        [SerializeField]
-        private Transform HiddenObjectContainer;
+        public SerializableDictionary<int, SerializableList<HiddenObject>> ObjectDict;
         
-        [SerializeField]
-        private SerializableDictionary<int, List<HiddenObject>> ObjectDict;
+        [SerializeField] private Transform HiddenObjectContainer;
 
         private int AreaIndex;
         

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DMCoin.Ultils;
@@ -7,12 +8,18 @@ using UnityEngine.EventSystems;
 
 namespace OjbectHunt.Map
 {
+    [Serializable]
     public class HiddenObject : MonoBehaviour, IPointerClickHandler
     {
         [SerializeField]
         private int ObjectID;
         
-        private int IndexInArea;
+        /// <summary>
+        /// The Index of the object in the list of Area dictionary
+        /// </summary>
+        [SerializeField]
+        private int ObjectIndex;
+        
         private bool IsFound = false;
         
         private SpriteRenderer ObjSprite;

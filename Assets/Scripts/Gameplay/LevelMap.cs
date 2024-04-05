@@ -6,6 +6,6 @@ namespace OjbectHunt.Map
 {
     public class LevelMap : MonoBehaviour
     {
-        [SerializeField] private List<MapArea> AreaLst;
+        public List<MapArea> AreaLst;
     }
 }
