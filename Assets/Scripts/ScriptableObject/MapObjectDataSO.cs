@@ -8,11 +8,10 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "MapObjectData", menuName = "ScriptableObjects/CreateMapObjectDataSO", order = 1)]
+[CreateAssetMenu(fileName = "MapObjectData", menuName = "ScriptableObjects/CreateMapObjectDataSO", order = 3)]
 public class MapObjectDataSO : ScriptableObject
 {
-    
-    public SerializableDictionary<int, HiddenObjectData> ObjectDict;
+    [ReadOnly] public SerializableDictionary<int, HiddenObjectData> ObjectDict;
 
     [Button(ButtonSizes.Large), GUIColor(0, 1, 0)]
     public void AddNewItem()
@@ -27,17 +26,20 @@ public class MapObjectDataSO : ScriptableObject
         if (ObjectDict != null)
         {
             var objectData = new HiddenObjectData(gameObject);
-            
+            var objectId = 0;
+
             if (ObjectDict.Count > 0)
             {
                 var lastItem = ObjectDict.Last();
-                ObjectDict.Add(lastItem.Key + 1, objectData);
+                objectId = lastItem.Key + 1;
             }
-            else ObjectDict.Add(0, objectData);
-            
+
+            objectData.ObjectID = objectId;
+            ObjectDict.Add(objectId, objectData);
+
             OdinGameObjectPicker.OnGameObjectPicked -= OnGameObjectPickedHandler;
             OdinGameObjectPicker.OnGameObjectCancel -= OnGameObjectPickedCancel;
-            
+
             OdinGameObjectPicker.CloseWindow();
         }
     }
@@ -47,19 +49,25 @@ public class MapObjectDataSO : ScriptableObject
         OdinGameObjectPicker.OnGameObjectPicked -= OnGameObjectPickedHandler;
         OdinGameObjectPicker.OnGameObjectCancel -= OnGameObjectPickedCancel;
     }
+
+    public HiddenObjectData GetObjectPrefabById(int id)
+    {
+        if (ObjectDict.ContainsKey(id)) return ObjectDict[id];
+        return null;
+    }
 }
 
 [Serializable]
 public class HiddenObjectData
 {
-    [PreviewField]
-    public Sprite ObjectPreview;
+    public int ObjectID;
+    [PreviewField] public Sprite ObjectPreview;
     public GameObject ObjectPrefab;
 
     public HiddenObjectData(GameObject prefab)
     {
         ObjectPrefab = prefab;
-        
+
         var sprite = prefab.GetComponent<SpriteRenderer>();
         if (sprite != null)
         {
@@ -68,4 +76,3 @@ public class HiddenObjectData
         else ObjectPreview = null;
     }
 }
-

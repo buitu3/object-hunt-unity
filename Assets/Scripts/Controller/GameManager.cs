@@ -5,6 +5,7 @@ using System.Linq;
 using DMCoin.Ultils;
 using OjbectHunt.Common;
 using OjbectHunt.Map;
+using OjbectHunt.UI;
 using Sirenix.Utilities.Editor;
 using UnityEngine;
 
@@ -14,8 +15,8 @@ namespace OjbectHunt.GamePlay
     {
         public static GameManager Instance;
 
-        [SerializeField]
-        private LevelMap CurrentLevel;
+        [SerializeField] private LevelMap CurrentLevel;
+        [SerializeField] private MapObjectDataSO currentMapData;
         
         private Dictionary<int, int> TotalObjectDict = new Dictionary<int, int>();
         private Dictionary<int, int> FoundObjectDict = new Dictionary<int, int>();
@@ -39,10 +40,8 @@ namespace OjbectHunt.GamePlay
                     foreach (var obj in areaObjDict)
                     {
                         var objKey = obj.Key;
-                        if (TotalObjectDict.ContainsKey(objKey))
-                        {
-                            TotalObjectDict[objKey] += obj.Value.Count;
-                        }
+                        if (TotalObjectDict.ContainsKey(objKey)) TotalObjectDict[objKey] += obj.Value.Count;
+                        else TotalObjectDict.Add(objKey, obj.Value.Count); 
                     }
                 }
             }
@@ -53,6 +52,11 @@ namespace OjbectHunt.GamePlay
             EventDispatcher.RemoveListener(EventID.ON_HIDDEN_OBJECT_FOUND, OnHiddenObjectFoundHandler);
         }
 
+        public HiddenObjectData GetObjectData(int objId)
+        {
+            return currentMapData.GetObjectPrefabById(objId);
+        }
+        
         public List<int> GetListObject()
         {
             return TotalObjectDict.Keys.ToList();
@@ -91,6 +95,9 @@ namespace OjbectHunt.GamePlay
 
                 if (!FoundObjectDict.ContainsKey(hiddenObjectData.ObjectID)) FoundObjectDict.Add(hiddenObjectData.ObjectID, 1);
                 else FoundObjectDict[hiddenObjectData.ObjectID] += 1;
+                
+                // Update UI counter
+                LevelObjectCounterUI.Instance.UpdateObjectCount(hiddenObjectData.ObjectID,FoundObjectDict[hiddenObjectData.ObjectID]);
             }
         }
 

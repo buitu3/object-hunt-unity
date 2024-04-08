@@ -11,8 +11,7 @@ namespace OjbectHunt.Map
     [Serializable]
     public class HiddenObject : MonoBehaviour, IPointerClickHandler
     {
-        [SerializeField]
-        private int ObjectID;
+        public int ObjectID;
         
         /// <summary>
         /// The Index of the object in the list of Area dictionary

@@ -9,7 +9,7 @@ namespace OjbectHunt.Map
     {
         public SerializableDictionary<int, SerializableList<HiddenObject>> ObjectDict;
         
-        [SerializeField] private Transform HiddenObjectContainer;
+        public Transform HiddenObjectContainer;
 
         private int AreaIndex;
         
