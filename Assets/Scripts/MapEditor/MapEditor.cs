@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using OjbectHunt.Common;
 using OjbectHunt.Map;
 using Sirenix.OdinInspector;
+using Sirenix.OdinInspector.Editor;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -9,106 +13,108 @@ namespace OjbectHunt.Editor
 {
     public class MapEditor : MonoBehaviour
     {
+        #if UNITY_EDITOR
+        
         [OnValueChanged("LoadMapData")]
         public MapDataSO CurrentMapData;
+
+        [ReadOnly]
+        [InlineEditor]
+        public MapObjectDataSO CurrentMapObjectData;
 
         [TableList]
         public List<MapAreaDataView> AreaDatas = new List<MapAreaDataView>();
         
         private void LoadMapData()
         {
-            if(CurrentMapData == null) return;
-            var MapAreas = CurrentMapData.MapPrefab.GetComponent<LevelMap>();
+            if (CurrentMapData == null)
+            {
+                CleanData();
+                return;
+            }
+
+            CurrentMapObjectData = CurrentMapData.HiddenObjectsData;
+
+            // Check if gameobject has any child, if yes destroy them
+            if (transform.childCount > 0)
+            {
+                foreach (Transform child in transform)
+                {
+                    DestroyImmediate(child.gameObject);
+                }
+            }
             
+            // Instantiate a temp map prefab as the child of this gameobject
+            var tempMapPrefab = PrefabUtility.InstantiatePrefab(CurrentMapData.MapPrefab, transform) as GameObject;
+            var MapAreas = tempMapPrefab.GetComponent<LevelMap>();
+            
+            // Iterate through all areas in map and track hidden objects in each area
             AreaDatas.Clear();  
             foreach (var area in MapAreas.AreaLst)
             {
                 var currentArea = new MapAreaDataView();
-                // currentArea.LoadObjectInArea(area);
-
                 currentArea.AreaName = area.gameObject.name;
+                currentArea.RepresentArea = area;
+                
+                currentArea.LoadObjectInArea(area, CurrentMapData.HiddenObjectsData);
                 AreaDatas.Add(currentArea);
             } 
         }
-        
-    }
 
-    [System.Serializable]
-    public class MapAreaDataView
-    {
-        [ReadOnly]
-        [TableColumnWidth(150, Resizable = false)]
-        public string AreaName;
-        [TableList]
-        public List<AreaObjectDataView> MapObjLst = new List<AreaObjectDataView>();
-        
-        public void LoadObjectInArea(MapArea area, MapObjectDataSO mapObjData)
+        [FoldoutGroup("Create new Map", Expanded = true)]
+        public string MapName;
+        [FoldoutGroup("Create new Map")]
+        public SerializableList<SerializableList<Sprite>> MapAreaBGLst = new SerializableList<SerializableList<Sprite>>();
+
+        [FoldoutGroup("Create new Map")]
+        [Button(ButtonSizes.Large), GUIColor(0.4f, 0.8f, 1f)]
+        private void CreateMap()
         {
-            MapObjLst.Clear();
-            
-            // load list of object can be used in map
-            foreach (var obj in mapObjData.ObjectDict.Values)
-            {
-                MapObjLst.Add(new AreaObjectDataView
-                {
-                    ObjectID = obj.ObjectID,
-                    ObjectPreview = obj.ObjectPreview,
-                    ObjectCount = 0,
-                    ObjsInMap = new List<GameObject>()
-                });
-            }
-            
-            // Iterate through all hidden object in map prefab and count into dict
-            for (int i = 0; i < area.HiddenObjectContainer.childCount; i++)
-            {
-                var obj = area.HiddenObjectContainer.GetChild(i).GetComponent<HiddenObject>();
-                if(obj == null) continue;
+            // Get map template and are template based on pre defined path
+            GameObject mapTemplate = AssetDatabase.LoadAssetAtPath<GameObject>(EditorConstant.EDITOR_MAP_TEMPLATE_PATH);
+            GameObject areaTemplate = AssetDatabase.LoadAssetAtPath<GameObject>(EditorConstant.EDITOR_AREA_TEMPLATE_PATH);
 
-                var objType = GetObjectTypeById(obj.ObjectID);
-                if (objType != null)
+            var newMap = ((GameObject)PrefabUtility.InstantiatePrefab(mapTemplate, transform)).GetComponent<LevelMap>();
+            if(!string.IsNullOrEmpty(MapName)) newMap.name = MapName;
+            
+            for (int i = 0; i < MapAreaBGLst.Count; i++)
+            {
+                var newArea = ((GameObject)PrefabUtility.InstantiatePrefab(areaTemplate, newMap.transform)).GetComponent<MapArea>();
+                newArea.name = "Area" + (i + 1);
+                newMap.AreaLst.Add(newArea);
+                
+                var bgContainer = newArea.transform.Find("BG Container");
+                
+                // Init BG for area
+                for (int j = 0; j < MapAreaBGLst[i].Count; j++)
                 {
-                    objType.ObjectCount++;
-                    objType.ObjsInMap.Add(obj.gameObject);
-                }
-                else
-                {
-                    Debug.LogError("object with id " + obj.ObjectID + " does not exist in map data");
+                    var newBG = new GameObject();
+                    newBG.name = "BG" + (j + 1); 
+                    newBG.transform.parent = bgContainer;
+                    
+                    var newBGSprite = newBG.AddComponent<SpriteRenderer>();
+                    newBGSprite.sprite = MapAreaBGLst[i][j];
                 }
             }
         }
-        
-        private AreaObjectDataView GetObjectTypeById(int id)
-        {
-            for (int i = 0; i < MapObjLst.Count; i++)
-            {
-                if (MapObjLst[i].ObjectID == id) return MapObjLst[i];
-            }
-            return null;
-        }
-    }
 
-    [System.Serializable]
-    public class AreaObjectDataView
-    {
-        [ReadOnly]
-        [TableColumnWidth(60, Resizable = false)]
-        public int ObjectID;
-        [ReadOnly]
-        [TableColumnWidth(60, Resizable = false)]
-        [PreviewField(Alignment = ObjectFieldAlignment.Center)] public Sprite ObjectPreview;
-        [ReadOnly]
-        [TableColumnWidth(60, Resizable = false)]
-        public int ObjectCount;
-        
-        public List<GameObject> ObjsInMap;
+        [FoldoutGroup("Import Map", Expanded = true)]
+        public GameObject ImportTemplate;
 
-        [ReadOnly]
-        [TableColumnWidth(60, Resizable = false)]
-        [Button]
-        private void Add()
+        [FoldoutGroup("Import Map", Expanded = true)]
+        [Button(ButtonSizes.Large), GUIColor(1f, 0.4f, 0.8f)]
+        private void ImportMap()
         {
             
         }
+
+        private void CleanData()
+        {
+            CurrentMapObjectData = null;
+            AreaDatas.Clear();
+        }
+        
+        #endif
     }
 }
 

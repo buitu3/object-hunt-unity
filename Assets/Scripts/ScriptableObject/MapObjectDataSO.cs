@@ -13,6 +13,8 @@ public class MapObjectDataSO : ScriptableObject
 {
     [ReadOnly] public SerializableDictionary<int, HiddenObjectData> ObjectDict;
 
+#if UNITY_EDITOR
+
     [Button(ButtonSizes.Large), GUIColor(0, 1, 0)]
     public void AddNewItem()
     {
@@ -55,6 +57,8 @@ public class MapObjectDataSO : ScriptableObject
         if (ObjectDict.ContainsKey(id)) return ObjectDict[id];
         return null;
     }
+
+#endif
 }
 
 [Serializable]

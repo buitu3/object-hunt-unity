@@ -8,6 +8,7 @@ namespace OjbectHunt.Editor
 {
     public class MapCreator : MonoBehaviour
     {
+        #if UNITY_EDITOR
         [OnValueChanged("LoadMapObjInfo")]
         public MapObjectDataSO MapObjLst;
         
@@ -26,6 +27,8 @@ namespace OjbectHunt.Editor
                 Info.ObjInMap.Add(newObj);
             }
         }
+        
+        #endif
     }
 
     [Serializable]

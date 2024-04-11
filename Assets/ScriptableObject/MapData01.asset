@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapName: 
   MapPreview: {fileID: 0}
-  MapPrefab: {fileID: 0}
+  MapPrefab: {fileID: 834271516124110579, guid: d28b4f8367dcd7848aaecd5933295462, type: 3}
   HiddenObjectsData: {fileID: 11400000, guid: 03fb144c19fcafa43904fa9285bae786, type: 2}

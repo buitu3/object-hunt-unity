@@ -167,70 +167,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c14313c6b587ba540975097178fff4fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentMapData: {fileID: 11400000, guid: 10d64ab42e75ab74895bd91da35ec6c5, type: 2}
-  AreaDatas:
-  - AreaName: Area01
-    MapObjLst:
-    - ObjectID: 0
-      ObjectPreview: {fileID: 2800000, guid: 196358bcf84aefd4198c3049ae0b333a, type: 3}
-      ObjectCount: 3
-      ObjsInMap:
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-    - ObjectID: 1
-      ObjectPreview: {fileID: 2800000, guid: c418f25d12040c044b206ba52e2d737f, type: 3}
-      ObjectCount: 3
-      ObjsInMap:
-      - {fileID: 0}
-      - {fileID: 0}
-      - {fileID: 0}
-  - AreaName: Area02
-    MapObjLst: []
---- !u!1 &673538486
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 673538488}
-  - component: {fileID: 673538487}
-  m_Layer: 0
-  m_Name: test
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &673538487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673538486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da3cfae6254ece84e9d50b9d8496e011, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &673538488
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673538486}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.22169, y: 10.512311, z: -0.29933855}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  CurrentMapData: {fileID: 0}
+  CurrentMapObjectData: {fileID: 0}
+  AreaDatas: []
+  MapName: map01
+  MapAreaBGLst:
+    list:
+    - list:
+      - {fileID: 21300000, guid: 0a1ad5a1e8009d640945d549cf2e9d51, type: 3}
+      - {fileID: 21300000, guid: 8e7a82bcf1ecee2419eab0117e2bd065, type: 3}
+    - list:
+      - {fileID: 21300000, guid: 0a1ad5a1e8009d640945d549cf2e9d51, type: 3}
+      - {fileID: 21300000, guid: db9e75acdd5f59d42989982ad7e00abb, type: 3}
+  ImportTemplate: {fileID: 0}
 --- !u!1 &1889740052
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,4 +329,3 @@ SceneRoots:
   - {fileID: 1928682153}
   - {fileID: 1889740053}
   - {fileID: 343089881}
-  - {fileID: 673538488}
