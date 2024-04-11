@@ -63,6 +63,17 @@ namespace OjbectHunt.Editor
 
         [FoldoutGroup("Create new Map", Expanded = true)]
         public string MapName;
+
+        [FoldoutGroup("Create new Map")]
+        [Tooltip("The number of Area in this map")]
+        [OnValueChanged("OnAreaCountChanged")]
+        public int NumberOfArea;
+
+        [FoldoutGroup("Create new Map")] 
+        public int BGsRowInArea;
+        [FoldoutGroup("Create new Map")]
+        public int BGsColumnInArea;
+        
         [FoldoutGroup("Create new Map")]
         public SerializableList<SerializableList<Sprite>> MapAreaBGLst = new SerializableList<SerializableList<Sprite>>();
 
@@ -84,6 +95,9 @@ namespace OjbectHunt.Editor
                 newMap.AreaLst.Add(newArea);
                 
                 var bgContainer = newArea.transform.Find("BG Container");
+
+                var bgWidth = MapAreaBGLst[i][0].bounds.size.x;
+                var bgHeight = MapAreaBGLst[i][0].bounds.size.y;
                 
                 // Init BG for area
                 for (int j = 0; j < MapAreaBGLst[i].Count; j++)
@@ -94,7 +108,24 @@ namespace OjbectHunt.Editor
                     
                     var newBGSprite = newBG.AddComponent<SpriteRenderer>();
                     newBGSprite.sprite = MapAreaBGLst[i][j];
+                    
+                    int xIndex = j % BGsColumnInArea;
+                    int yIndex = j / BGsColumnInArea;
+
+                    var posX = (xIndex * bgWidth) + (bgWidth / 2);
+                    var posY = (yIndex * bgHeight) + (bgHeight / 2);
+                    newBGSprite.transform.position = new Vector3(posX, posY, 0);
                 }
+            }
+        }
+
+        private void OnAreaCountChanged()
+        {
+            int originalCount = MapAreaBGLst.Count;
+            if(originalCount > NumberOfArea) MapAreaBGLst.RemoveRange(NumberOfArea - 1, originalCount - NumberOfArea);
+            else if (originalCount < NumberOfArea)
+            {
+                for(int i = 0; i < NumberOfArea - originalCount; i++) MapAreaBGLst.Add(new SerializableList<Sprite>());
             }
         }
 
