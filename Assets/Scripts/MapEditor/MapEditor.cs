@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using MyNamespace;
 using OjbectHunt.Common;
 using OjbectHunt.Map;
 using Sirenix.OdinInspector;
@@ -11,38 +12,48 @@ using UnityEngine.Serialization;
 
 namespace OjbectHunt.Editor
 {
+    [OnInspectorInit("OnInspectorInit")]
     public class MapEditor : MonoBehaviour
     {
         #if UNITY_EDITOR
         
-        [OnValueChanged("LoadMapData")]
+        [ReadOnly]
         public MapDataSO CurrentMapData;
 
-        [ReadOnly]
         [InlineEditor]
         public MapObjectDataSO CurrentMapObjectData;
 
         [TableList]
         public List<MapAreaDataView> AreaDatas = new List<MapAreaDataView>();
         
-        private void LoadMapData()
+        public void LoadMapData()
         {
             if (CurrentMapData == null)
             {
-                CleanData();
+                CleanupData();
                 return;
             }
-
-            CurrentMapObjectData = CurrentMapData.HiddenObjectsData;
-
-            // Check if gameobject has any child, if yes destroy them
-            if (transform.childCount > 0)
+            
+            // Remove event listener from old map object data
+            if (CurrentMapObjectData != null && CurrentMapObjectData.OnObjDictSizeChanged.GetInvocationList().Length > 0)
             {
-                foreach (Transform child in transform)
-                {
-                    DestroyImmediate(child.gameObject);
-                }
+                CurrentMapObjectData.OnObjDictSizeChanged = null;
             }
+            CurrentMapObjectData = CurrentMapData.HiddenObjectsData;
+            
+            // Register event from new map object data
+            CurrentMapObjectData.OnObjDictSizeChanged = ReloadObjectsInArea;
+            
+            ReloadObjectsInArea();
+        }
+
+        /// <summary>
+        /// This method instantiate a prefab of the current map data onto the scene, then scan through all object in each area of prefab and keep track of them
+        /// </summary>
+        public void ReloadObjectsInArea()
+        {
+            // Check if gameobject has any child, if yes destroy them
+            UnityUtilities.ClearAllChildren(this.transform);
             
             // Instantiate a temp map prefab as the child of this gameobject
             var tempMapPrefab = PrefabUtility.InstantiatePrefab(CurrentMapData.MapPrefab, transform) as GameObject;
@@ -61,88 +72,15 @@ namespace OjbectHunt.Editor
             } 
         }
 
-        [FoldoutGroup("Create new Map", Expanded = true)]
-        public string MapName;
-
-        [FoldoutGroup("Create new Map")]
-        [Tooltip("The number of Area in this map")]
-        [OnValueChanged("OnAreaCountChanged")]
-        public int NumberOfArea;
-
-        [FoldoutGroup("Create new Map")] 
-        public int BGsRowInArea;
-        [FoldoutGroup("Create new Map")]
-        public int BGsColumnInArea;
-        
-        [FoldoutGroup("Create new Map")]
-        public SerializableList<SerializableList<Sprite>> MapAreaBGLst = new SerializableList<SerializableList<Sprite>>();
-
-        [FoldoutGroup("Create new Map")]
-        [Button(ButtonSizes.Large), GUIColor(0.4f, 0.8f, 1f)]
-        private void CreateMap()
-        {
-            // Get map template and are template based on pre defined path
-            GameObject mapTemplate = AssetDatabase.LoadAssetAtPath<GameObject>(EditorConstant.EDITOR_MAP_TEMPLATE_PATH);
-            GameObject areaTemplate = AssetDatabase.LoadAssetAtPath<GameObject>(EditorConstant.EDITOR_AREA_TEMPLATE_PATH);
-
-            var newMap = ((GameObject)PrefabUtility.InstantiatePrefab(mapTemplate, transform)).GetComponent<LevelMap>();
-            if(!string.IsNullOrEmpty(MapName)) newMap.name = MapName;
-            
-            for (int i = 0; i < MapAreaBGLst.Count; i++)
-            {
-                var newArea = ((GameObject)PrefabUtility.InstantiatePrefab(areaTemplate, newMap.transform)).GetComponent<MapArea>();
-                newArea.name = "Area" + (i + 1);
-                newMap.AreaLst.Add(newArea);
-                
-                var bgContainer = newArea.transform.Find("BG Container");
-
-                var bgWidth = MapAreaBGLst[i][0].bounds.size.x;
-                var bgHeight = MapAreaBGLst[i][0].bounds.size.y;
-                
-                // Init BG for area
-                for (int j = 0; j < MapAreaBGLst[i].Count; j++)
-                {
-                    var newBG = new GameObject();
-                    newBG.name = "BG" + (j + 1); 
-                    newBG.transform.parent = bgContainer;
-                    
-                    var newBGSprite = newBG.AddComponent<SpriteRenderer>();
-                    newBGSprite.sprite = MapAreaBGLst[i][j];
-                    
-                    int xIndex = j % BGsColumnInArea;
-                    int yIndex = j / BGsColumnInArea;
-
-                    var posX = (xIndex * bgWidth) + (bgWidth / 2);
-                    var posY = (yIndex * bgHeight) + (bgHeight / 2);
-                    newBGSprite.transform.position = new Vector3(posX, posY, 0);
-                }
-            }
-        }
-
-        private void OnAreaCountChanged()
-        {
-            int originalCount = MapAreaBGLst.Count;
-            if(originalCount > NumberOfArea) MapAreaBGLst.RemoveRange(NumberOfArea - 1, originalCount - NumberOfArea);
-            else if (originalCount < NumberOfArea)
-            {
-                for(int i = 0; i < NumberOfArea - originalCount; i++) MapAreaBGLst.Add(new SerializableList<Sprite>());
-            }
-        }
-
-        [FoldoutGroup("Import Map", Expanded = true)]
-        public GameObject ImportTemplate;
-
-        [FoldoutGroup("Import Map", Expanded = true)]
-        [Button(ButtonSizes.Large), GUIColor(1f, 0.4f, 0.8f)]
-        private void ImportMap()
-        {
-            
-        }
-
-        private void CleanData()
+        private void CleanupData()
         {
             CurrentMapObjectData = null;
             AreaDatas.Clear();
+        }
+
+        private void OnInspectorInit()
+        {
+            // CurrentMapObjectData.OnObjDictSizeChanged = ReloadObjectsInArea;
         }
         
         #endif

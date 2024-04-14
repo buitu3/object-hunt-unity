@@ -8,6 +8,8 @@ using UnityEngine;
 
 public class OdinGameObjectPicker : OdinEditorWindow
 {
+    #if UNITY_EDITOR
+    
     [ShowInInspector, ReadOnly]
     private GameObject selectedGameObject;
     
@@ -45,4 +47,6 @@ public class OdinGameObjectPicker : OdinEditorWindow
         }
         
     }
+    
+    #endif
 }

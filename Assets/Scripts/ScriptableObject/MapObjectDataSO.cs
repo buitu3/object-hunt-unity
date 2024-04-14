@@ -11,9 +11,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MapObjectData", menuName = "ScriptableObjects/CreateMapObjectDataSO", order = 3)]
 public class MapObjectDataSO : ScriptableObject
 {
-    [ReadOnly] public SerializableDictionary<int, HiddenObjectData> ObjectDict;
+    public SerializableDictionary<int, HiddenObjectData> ObjectDict;
 
 #if UNITY_EDITOR
+    
+    public Action OnObjDictSizeChanged;
 
     [Button(ButtonSizes.Large), GUIColor(0, 1, 0)]
     public void AddNewItem()
@@ -43,6 +45,8 @@ public class MapObjectDataSO : ScriptableObject
             OdinGameObjectPicker.OnGameObjectCancel -= OnGameObjectPickedCancel;
 
             OdinGameObjectPicker.CloseWindow();
+            
+            // OnObjDictSizeChanged?.Invoke();
         }
     }
 
@@ -56,6 +60,11 @@ public class MapObjectDataSO : ScriptableObject
     {
         if (ObjectDict.ContainsKey(id)) return ObjectDict[id];
         return null;
+    }
+    
+    private void OnObjectDictSizeChangedHandler()
+    {
+        OnObjDictSizeChanged?.Invoke();
     }
 
 #endif

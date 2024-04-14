@@ -9,6 +9,8 @@ namespace OjbectHunt.Editor
     [System.Serializable]
     public class MapAreaDataView
     {
+        #if UNITY_EDITOR
+        
         [ReadOnly]
         [TableColumnWidth(150, Resizable = false)]
         public string AreaName;
@@ -64,4 +66,5 @@ namespace OjbectHunt.Editor
         }
     }
 
+    #endif
 }

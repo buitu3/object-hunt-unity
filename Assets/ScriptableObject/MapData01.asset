@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62ad6aa5dc9992478d66f196f9ed21e, type: 3}
   m_Name: MapData01
   m_EditorClassIdentifier: 
-  MapName: 
-  MapPreview: {fileID: 0}
+  MapName: Big City
+  MapPreview: {fileID: 21300000, guid: 4afc323f79bc2584ea6fd8c827bee0d3, type: 3}
   MapPrefab: {fileID: 834271516124110579, guid: d28b4f8367dcd7848aaecd5933295462, type: 3}
   HiddenObjectsData: {fileID: 11400000, guid: 03fb144c19fcafa43904fa9285bae786, type: 2}

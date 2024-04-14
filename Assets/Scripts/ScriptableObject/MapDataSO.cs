@@ -9,7 +9,7 @@ using UnityEngine;
 public class MapDataSO : ScriptableObject
 {
     public string MapName;
-    public Texture2D MapPreview;
+    public Sprite MapPreview;
     public GameObject MapPrefab;
     public MapObjectDataSO HiddenObjectsData;
 }

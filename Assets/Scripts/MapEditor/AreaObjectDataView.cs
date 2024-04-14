@@ -11,6 +11,8 @@ namespace OjbectHunt.Editor
     [System.Serializable]
     public class AreaObjectDataView
     {
+        #if UNITY_EDITOR
+        
         [ReadOnly]
         [TableColumnWidth(60, Resizable = false)]
         public int ObjectID;
@@ -28,12 +30,13 @@ namespace OjbectHunt.Editor
         [HideInInspector] public MapArea RepresentArea;
         [HideInInspector] public GameObject RepresentObj;
 
-        [ReadOnly]
         [TableColumnWidth(60, Resizable = false)]
+        [Button, GUIColor(0, 1, 0)]
         private void Add()
         {
             if(RepresentObj == null || RepresentArea == null) return; 
             var newObj = PrefabUtility.InstantiatePrefab(RepresentObj, RepresentArea.HiddenObjectContainer) as GameObject;
+            newObj.transform.position = RepresentArea.transform.position;
             
             // Update info show on editor
             Count++;
@@ -58,5 +61,7 @@ namespace OjbectHunt.Editor
         {
             
         }
+        
+        #endif
     }
 }

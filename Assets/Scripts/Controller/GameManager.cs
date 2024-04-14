@@ -8,6 +8,7 @@ using OjbectHunt.Map;
 using OjbectHunt.UI;
 using Sirenix.Utilities.Editor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace OjbectHunt.GamePlay
 {
@@ -15,8 +16,9 @@ namespace OjbectHunt.GamePlay
     {
         public static GameManager Instance;
 
-        [SerializeField] private LevelMap CurrentLevel;
-        [SerializeField] private MapObjectDataSO currentMapData;
+        [HideInInspector]
+        public LevelMap CurrentLevel;
+        private MapObjectDataSO currentMapData;
         
         private Dictionary<int, int> TotalObjectDict = new Dictionary<int, int>();
         private Dictionary<int, int> FoundObjectDict = new Dictionary<int, int>();
@@ -24,6 +26,15 @@ namespace OjbectHunt.GamePlay
         public GameManager()
         {
             Instance = this;
+        }
+
+        private void Awake()
+        {
+            var selectedMap = GameDataManager.Instance.SelectedMap;
+            if (selectedMap == null) return;
+
+            CurrentLevel = Instantiate(selectedMap.MapPrefab).GetComponent<LevelMap>();
+            currentMapData = selectedMap.HiddenObjectsData;
         }
 
         private void OnEnable()
@@ -81,6 +92,11 @@ namespace OjbectHunt.GamePlay
         {
             if (!FoundObjectDict.ContainsKey(ObjectID)) return 0;
             else return FoundObjectDict[ObjectID];
+        }
+
+        public void ExitToLevelSelect()
+        {
+            SceneManager.LoadScene("LevelSelectScene");
         }
 
         #region Events Handler
