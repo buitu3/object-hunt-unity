@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sactx-0-4096x2048-Crunch-Area01_Atlas01-54e67cfd_0
+      name: Area01_03
       rect:
         serializedVersion: 2
         x: 0
@@ -144,7 +144,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sactx-0-4096x2048-Crunch-Area01_Atlas01-54e67cfd_1
+      name: Area01_01
       rect:
         serializedVersion: 2
         x: 1320
@@ -165,7 +165,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sactx-0-4096x2048-Crunch-Area01_Atlas01-54e67cfd_2
+      name: Area01_04
       rect:
         serializedVersion: 2
         x: 2640
@@ -196,9 +196,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sactx-0-4096x2048-Crunch-Area01_Atlas01-54e67cfd_0: 1141669342
-      sactx-0-4096x2048-Crunch-Area01_Atlas01-54e67cfd_1: 1184045723
-      sactx-0-4096x2048-Crunch-Area01_Atlas01-54e67cfd_2: -628389740
+      Area01_01: 1184045723
+      Area01_03: 1141669342
+      Area01_04: -628389740
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -80,7 +80,20 @@ namespace OjbectHunt.Editor
 
         private void OnInspectorInit()
         {
-            // CurrentMapObjectData.OnObjDictSizeChanged = ReloadObjectsInArea;
+            CurrentMapObjectData.OnObjDictSizeChanged = ReloadObjectsInArea;
+        }
+        
+        [Button(ButtonSizes.Large), GUIColor(0.5f, 0.5f, 0.8f)]
+        [PropertySpace(SpaceBefore = 10)]
+        public void SaveChanges()
+        {
+            if (transform.childCount == 0) Debug.LogError("There are no current map prefab in scene");
+            
+            // TODO: Have to use SaveAsPrefabAsset instead of ApplyPrefabInstance because somehow ApplyPrefabInstance does not apply the changes in Maparea object dict, need to find the reason why           
+            var assetPath = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(transform.GetChild(0).gameObject);
+            PrefabUtility.SaveAsPrefabAsset(transform.GetChild(0).gameObject, assetPath);
+            // PrefabUtility.ApplyPrefabInstance(transform.GetChild(0).gameObject, InteractionMode.AutomatedAction);
+            
         }
         
         #endif

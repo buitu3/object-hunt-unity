@@ -375,7 +375,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sactx-0-2048x4096-Crunch-Area01_Atlas02-a10893be_13
+      name: Area01_02
       rect:
         serializedVersion: 2
         x: 0
@@ -511,6 +511,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Area01_02: 143728738
       Map01_Area01_Atlas2_0: -1202908774
       Map01_Area01_Atlas2_1: -1931916225
       Map01_Area01_Atlas2_2: 2140049625
@@ -521,7 +522,6 @@ TextureImporter:
       sactx-0-2048x4096-Crunch-Area01_Atlas02-a10893be_10: -188030388
       sactx-0-2048x4096-Crunch-Area01_Atlas02-a10893be_11: 1153240843
       sactx-0-2048x4096-Crunch-Area01_Atlas02-a10893be_12: -2106408480
-      sactx-0-2048x4096-Crunch-Area01_Atlas02-a10893be_13: 143728738
       sactx-0-2048x4096-Crunch-Area01_Atlas02-a10893be_2: -1169289194
       sactx-0-2048x4096-Crunch-Area01_Atlas02-a10893be_3: 282674151
       sactx-0-2048x4096-Crunch-Area01_Atlas02-a10893be_4: 1634169341

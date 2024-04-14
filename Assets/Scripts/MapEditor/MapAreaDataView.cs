@@ -54,6 +54,15 @@ namespace OjbectHunt.Editor
                     Debug.LogError("object with id " + obj.ObjectID + " does not exist in map data");
                 }
             }
+            
+            // Apply object tracking data into current MapArea
+            area.ObjectDict.Clear();
+            foreach (var objectTrack in MapObjLst)
+            {
+                var objList = new SerializableList<GameObject>();
+                objList.AddRange(objectTrack.ObjsInMap);
+                if(objectTrack.Count > 0) area.ObjectDict.Add(objectTrack.ObjectID, objList);
+            }
         }
         
         private AreaObjectDataView GetObjectTypeById(int id)

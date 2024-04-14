@@ -41,6 +41,9 @@ namespace OjbectHunt.Editor
             // Update info show on editor
             Count++;
             ObjsInMap.Add(newObj);
+            
+            if(RepresentArea.ObjectDict.ContainsKey(ObjectID)) RepresentArea.ObjectDict[ObjectID].Add(newObj);
+            else RepresentArea.ObjectDict.Add(ObjectID, new SerializableList<GameObject>{newObj});
         }
 
         private void BeforeListObjChanged(CollectionChangeInfo info, object value)
@@ -48,12 +51,14 @@ namespace OjbectHunt.Editor
             if (info.ChangeType == CollectionChangeType.RemoveIndex)
             {
                 var removeIndex = info.Index;
-                GameObject.DestroyImmediate(ObjsInMap[removeIndex]);
+                var destroyObj = ObjsInMap[removeIndex];
                 
-                // var path = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(MigrateMapTemplate.gameObject);
-                // PrefabUtility.UnpackPrefabInstance(MigrateMapTemplate.gameObject, PrefabUnpackMode.OutermostRoot, InteractionMode.AutomatedAction);
-                //GameObject.DestroyImmediate(MigrateMapTemplate.WestPortal.gameObject);
-                // PrefabUtility.SaveAsPrefabAsset(MigrateMapTemplate.gameObject, path, out result);
+                ObjsInMap.RemoveAt(removeIndex);
+                Count--;
+                
+                if(RepresentArea.ObjectDict.ContainsKey(ObjectID)) RepresentArea.ObjectDict[ObjectID].Remove(destroyObj);
+                
+                GameObject.DestroyImmediate(destroyObj);
             }
         }
 

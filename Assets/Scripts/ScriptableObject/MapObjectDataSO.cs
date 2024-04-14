@@ -11,11 +11,28 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MapObjectData", menuName = "ScriptableObjects/CreateMapObjectDataSO", order = 3)]
 public class MapObjectDataSO : ScriptableObject
 {
+    [ReadOnly]
     public SerializableDictionary<int, HiddenObjectData> ObjectDict;
 
 #if UNITY_EDITOR
     
     public Action OnObjDictSizeChanged;
+    
+    [HorizontalGroup("remove item")]
+    [PropertySpace(SpaceBefore = 10, SpaceAfter = 10)]
+    public int RemoveObjectID;
+    [HorizontalGroup("remove item", Width = 100)]
+    [Button(ButtonSizes.Large), GUIColor(1, 0, 0)]
+    public void RemoveItem()
+    {
+        if (!ObjectDict.ContainsKey(RemoveObjectID))
+        {
+            Debug.LogError("There are no object with ID: " + RemoveObjectID + " in current map object data");
+            return;
+        }
+        ObjectDict.Remove(RemoveObjectID);
+        OnObjDictSizeChanged?.Invoke();
+    }
 
     [Button(ButtonSizes.Large), GUIColor(0, 1, 0)]
     public void AddNewItem()
@@ -46,7 +63,7 @@ public class MapObjectDataSO : ScriptableObject
 
             OdinGameObjectPicker.CloseWindow();
             
-            // OnObjDictSizeChanged?.Invoke();
+            OnObjDictSizeChanged?.Invoke();
         }
     }
 

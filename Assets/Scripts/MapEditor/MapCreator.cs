@@ -1,12 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using MyNamespace;
 using OjbectHunt.Common;
+using OjbectHunt.Data;
 using OjbectHunt.Map;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace OjbectHunt.Editor
 {
@@ -14,8 +17,13 @@ namespace OjbectHunt.Editor
     {
 #if UNITY_EDITOR
 
+        [SerializeField] private MapsCollectionSO MapDataCollection;
+
         [Title("Map properties")] [FoldoutGroup("Create new Map", Expanded = true)]
         public string MapName;
+        
+        [FoldoutGroup("Create new Map")]
+        public Sprite MapPreview;
 
         [FoldoutGroup("Create new Map")]
         [Tooltip("The number of Area in this map")]
@@ -76,12 +84,16 @@ namespace OjbectHunt.Editor
             AssetDatabase.CreateAsset(newHiddenObjectData,
                 EditorConstant.EDITOR_MAP_OBJECT_DATA_SAVING_FOLDER_PATH + newMap.name + "_ObjectData.asset");
 
-            // Create new map data in a scriptable object
+            // Create new map data in a scriptable object and add to collection
             var newMapData = ScriptableObject.CreateInstance<MapDataSO>();
+            newMapData.MapName = MapName;
+            newMapData.MapPreview = MapPreview;
             newMapData.MapPrefab = newMapPrefab;
             newMapData.HiddenObjectsData = newHiddenObjectData;
+            
             AssetDatabase.CreateAsset(newMapData,
                 EditorConstant.EDITOR_MAP_DATA_SAVING_FOLDER_PATH + newMap.name + ".asset");
+            MapDataCollection.MapLst.Add(newMapData);
 
             // Get the Map editor component and load newly created map data into it
             var mapEditor = GetComponent<MapEditor>();
@@ -127,7 +139,7 @@ namespace OjbectHunt.Editor
         private void OnAreaCountChanged()
         {
             int originalCount = MapAreaBGLst.Count;
-            if (originalCount > NumberOfArea) MapAreaBGLst.RemoveRange(NumberOfArea - 1, originalCount - NumberOfArea);
+            if (originalCount > NumberOfArea) MapAreaBGLst.RemoveRange(NumberOfArea, originalCount - NumberOfArea);
             else if (originalCount < NumberOfArea)
             {
                 for (int i = 0; i < NumberOfArea - originalCount; i++) MapAreaBGLst.Add(new SerializableList<Sprite>());
@@ -135,12 +147,20 @@ namespace OjbectHunt.Editor
         }
 
         [FoldoutGroup("Import Map", Expanded = true)]
-        public GameObject ImportTemplate;
+        public MapDataSO ImportMapData;
 
         [FoldoutGroup("Import Map", Expanded = true)]
         [Button(ButtonSizes.Large), GUIColor(1f, 0.4f, 0.8f)]
         private void ImportMap()
         {
+            if(ImportMapData == null) Debug.LogError("There are no import map data selected");
+            
+            // Get the Map editor component and load newly created map data into it
+            var mapEditor = GetComponent<MapEditor>();
+            if (mapEditor == null) Debug.LogError("Could not get the map editor component");
+            
+            mapEditor.CurrentMapData = ImportMapData;
+            mapEditor.LoadMapData();
         }
 
 #endif

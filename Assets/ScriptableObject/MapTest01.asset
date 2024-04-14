@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c62ad6aa5dc9992478d66f196f9ed21e, type: 3}
-  m_Name: MapTest02
+  m_Name: MapTest01
   m_EditorClassIdentifier: 
-  MapName: Amusement Park
-  MapPreview: {fileID: 21300000, guid: d3eda3d14b0fa0f4282664643aaecf5a, type: 3}
-  MapPrefab: {fileID: 5979761766816009832, guid: bdef85b6128e01c4b8b62449ae29258e, type: 3}
-  HiddenObjectsData: {fileID: 11400000, guid: bba4f668e09cfcd4480cea716609756e, type: 2}
+  MapName: MapTest01
+  MapPreview: {fileID: 21300000, guid: a7caa6d1fa8801743a75b2ecfa777132, type: 3}
+  MapPrefab: {fileID: 3924411214066971233, guid: 9f0c1c4012e5a70438104cd81d6af2a0, type: 3}
+  HiddenObjectsData: {fileID: 11400000, guid: 6d775e9fa10d8cd4abdbfa7d859d6d77, type: 2}

@@ -14,6 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapLst:
     list:
-    - {fileID: 11400000, guid: 10d64ab42e75ab74895bd91da35ec6c5, type: 2}
-    - {fileID: 11400000, guid: 270b704213f82394aac6909a3357ec16, type: 2}
-    - {fileID: 11400000, guid: bba0b32eda68c7f4fb4d6f6449821de0, type: 2}
+    - {fileID: 11400000, guid: 87bf501e8b2a19640967c82ce27f614e, type: 2}

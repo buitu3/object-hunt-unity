@@ -7,7 +7,7 @@ namespace OjbectHunt.Map
 {
     public class MapArea : MonoBehaviour
     {
-        public SerializableDictionary<int, SerializableList<HiddenObject>> ObjectDict;
+        public SerializableDictionary<int, SerializableList<GameObject>> ObjectDict;
         
         public Transform HiddenObjectContainer;
 

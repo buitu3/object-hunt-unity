@@ -10,14 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cad582748b0b04e4fae855ad77411673, type: 3}
-  m_Name: MapObjectData01
+  m_Name: MapTest01_ObjectData
   m_EditorClassIdentifier: 
   ObjectDict:
     m_keys: 000000000100000002000000
     m_values:
-    - ObjectPreview: {fileID: 21300000, guid: 196358bcf84aefd4198c3049ae0b333a, type: 3}
+    - ObjectID: 0
+      ObjectPreview: {fileID: 21300000, guid: 196358bcf84aefd4198c3049ae0b333a, type: 3}
       ObjectPrefab: {fileID: 2146890971756559242, guid: 15f27631ee8fd6f499f720d2fe28a68f, type: 3}
-    - ObjectPreview: {fileID: 21300000, guid: c418f25d12040c044b206ba52e2d737f, type: 3}
+    - ObjectID: 1
+      ObjectPreview: {fileID: 21300000, guid: c418f25d12040c044b206ba52e2d737f, type: 3}
       ObjectPrefab: {fileID: 2146890971756559242, guid: ae42df6d913794842bd4366285e590e5, type: 3}
-    - ObjectPreview: {fileID: 21300000, guid: c707564ff0d71734c9ef87b6f83771d0, type: 3}
+    - ObjectID: 2
+      ObjectPreview: {fileID: 21300000, guid: c707564ff0d71734c9ef87b6f83771d0, type: 3}
       ObjectPrefab: {fileID: 2146890971756559242, guid: 290fd8d18c4129c478545a83636795ae, type: 3}
+  RemoveObjectID: 0
