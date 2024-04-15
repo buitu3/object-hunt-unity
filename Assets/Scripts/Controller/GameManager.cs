@@ -107,7 +107,6 @@ namespace OjbectHunt.GamePlay
             if (data is HiddenObjectClickedMessage)
             {
                 var hiddenObjectData = data as HiddenObjectClickedMessage;
-                Debug.LogError("found object: " + hiddenObjectData.ObjectID);
 
                 if (!FoundObjectDict.ContainsKey(hiddenObjectData.ObjectID)) FoundObjectDict.Add(hiddenObjectData.ObjectID, 1);
                 else FoundObjectDict[hiddenObjectData.ObjectID] += 1;

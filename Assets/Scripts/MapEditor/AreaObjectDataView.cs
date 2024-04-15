@@ -36,7 +36,6 @@ namespace OjbectHunt.Editor
         {
             if(RepresentObj == null || RepresentArea == null) return; 
             var newObj = PrefabUtility.InstantiatePrefab(RepresentObj, RepresentArea.HiddenObjectContainer) as GameObject;
-            newObj.transform.position = RepresentArea.transform.position;
             
             // Update info show on editor
             Count++;

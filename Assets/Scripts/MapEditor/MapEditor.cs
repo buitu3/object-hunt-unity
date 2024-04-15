@@ -92,8 +92,10 @@ namespace OjbectHunt.Editor
             // TODO: Have to use SaveAsPrefabAsset instead of ApplyPrefabInstance because somehow ApplyPrefabInstance does not apply the changes in Maparea object dict, need to find the reason why           
             var assetPath = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(transform.GetChild(0).gameObject);
             PrefabUtility.SaveAsPrefabAsset(transform.GetChild(0).gameObject, assetPath);
-            // PrefabUtility.ApplyPrefabInstance(transform.GetChild(0).gameObject, InteractionMode.AutomatedAction);
+            PrefabUtility.RevertPrefabInstance(transform.GetChild(0).gameObject);
             
+            // PrefabUtility.ApplyPrefabInstance(transform.GetChild(0).gameObject, InteractionMode.AutomatedAction);
+
         }
         
         #endif

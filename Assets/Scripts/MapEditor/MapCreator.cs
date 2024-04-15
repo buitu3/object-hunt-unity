@@ -68,9 +68,10 @@ namespace OjbectHunt.Editor
                 int areaYIndex = i / NumOfAreaInAColumn;
                 var areaWidth = MapAreaBGLst[i][0].bounds.size.x * BGsColumnInArea;
                 var areaHeight = MapAreaBGLst[i][0].bounds.size.y * BGsRowInArea;
-                var posX = (areaXIndex * areaWidth) + (areaWidth / 2);
-                var posY = (areaYIndex * areaHeight) + (areaHeight / 2);
+                var posX = (areaXIndex * areaWidth);
+                var posY = (areaYIndex * areaHeight);
                 newArea.transform.position = new Vector3(posX, posY, 0);
+                newArea.HiddenObjectContainer.position = new Vector3(posX + areaWidth/2, posY + areaHeight/2, 0);
 
                 InitAreaBGs(newArea, MapAreaBGLst[i]);
             }

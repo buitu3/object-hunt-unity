@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: MapCollection
   m_EditorClassIdentifier: 
   MapLst:
-    list:
-    - {fileID: 11400000, guid: 87bf501e8b2a19640967c82ce27f614e, type: 2}
+    list: []

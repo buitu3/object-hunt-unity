@@ -10,39 +10,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2425353352281055993, guid: 419bdfbbd10dc164f92bd464ece954bf, type: 3}
       propertyPath: m_Name
-      value: M2_O3
+      value: M3_O2
       objectReference: {fileID: 0}
     - target: {fileID: 3063166627040009539, guid: 419bdfbbd10dc164f92bd464ece954bf, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0ceb60b4e44eef1478319226c844755c, type: 3}
+      objectReference: {fileID: 21300000, guid: 6c0e64489a25d1e488c0e82ce2ce1353, type: 3}
     - target: {fileID: 3564014829025349374, guid: 419bdfbbd10dc164f92bd464ece954bf, type: 3}
       propertyPath: m_Size.x
-      value: 0.4352314
-      objectReference: {fileID: 0}
-    - target: {fileID: 3564014829025349374, guid: 419bdfbbd10dc164f92bd464ece954bf, type: 3}
-      propertyPath: m_Size.y
-      value: 0.44388577
-      objectReference: {fileID: 0}
-    - target: {fileID: 3564014829025349374, guid: 419bdfbbd10dc164f92bd464ece954bf, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3564014829025349374, guid: 419bdfbbd10dc164f92bd464ece954bf, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.000000059604645
-      objectReference: {fileID: 0}
-    - target: {fileID: 3564014829025349374, guid: 419bdfbbd10dc164f92bd464ece954bf, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.012042567
+      value: 0.98
       objectReference: {fileID: 0}
     - target: {fileID: 3564014829025349374, guid: 419bdfbbd10dc164f92bd464ece954bf, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.31333333
+      value: 0.97333336
       objectReference: {fileID: 0}
     - target: {fileID: 3564014829025349374, guid: 419bdfbbd10dc164f92bd464ece954bf, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.32
+      value: 0.73333335
       objectReference: {fileID: 0}
     - target: {fileID: 4989297903161121807, guid: 419bdfbbd10dc164f92bd464ece954bf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -86,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5451906702945436326, guid: 419bdfbbd10dc164f92bd464ece954bf, type: 3}
       propertyPath: ObjectID
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
