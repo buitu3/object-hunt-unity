@@ -3,8 +3,13 @@
 </h1>
 
 # Creating new map
-- First you need to open the MapTemplateScene in the project
-![open maptemplate scene](Screenshot/Screenshot_createmap_01.png)
+- First you need to open the MapTemplateScene in the project <br>
+
+![open maptemplate scene](/../main/Screenshot/Screenshot_createmap_01.png)
+
+- Then on the Hierachy tab, click on the `MapEditor` gameobject <br>
+
+![open maptemplate scene](/../main/Screenshot/Screenshot_createmap_02.png)
 
 
 
