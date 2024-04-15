@@ -23,6 +23,7 @@ namespace OjbectHunt.GamePlay
         private float PanMinX, PanMinY, PanMaxX, PanMaxY;
         private Camera MainCam;
 
+        private Vector2 BGsCenter;
         private Vector3 DragOrigin;
         private Vector3 TouchStart;
 
@@ -35,7 +36,7 @@ namespace OjbectHunt.GamePlay
         {
             CalulateBoundaries();
 
-            MainCam.transform.position = new Vector3(BGSpriteLst[0].transform.position.x, BGSpriteLst[0].transform.position.y, MainCam.transform.position.z);
+            MainCam.transform.position = new Vector3(BGsCenter.x, BGsCenter.y, MainCam.transform.position.z);
         }
 
         private void Update()
@@ -72,7 +73,7 @@ namespace OjbectHunt.GamePlay
             var orthographicSize = MainCam.orthographicSize;
             var camWidth = orthographicSize * MainCam.aspect;
 
-            if (MainCam.orthographicSize < ZoomMax + ZoomPan)
+            if (MainCam.orthographicSize <= ZoomMax + ZoomPan)
             {
                 var minX = PanMinX + camWidth;
                 var minY = PanMinY + orthographicSize;
@@ -107,6 +108,7 @@ namespace OjbectHunt.GamePlay
         private void CalulateBoundaries()
         {
             BGSpriteLst.Clear();
+            BGsCenter = Vector2.zero;
             var currentLevel = GameManager.Instance.CurrentLevel;
             if(currentLevel == null) return;
             
@@ -138,6 +140,10 @@ namespace OjbectHunt.GamePlay
                 PanMinY = Mathf.Min(PanMinY, bg.bounds.min.y);
                 PanMaxY = Mathf.Max(PanMaxY, bg.bounds.max.y);
             }
+            
+            // Calculate the center of all the BGs
+            BGsCenter.x = (PanMinX + PanMaxX) / 2;
+            BGsCenter.y = (PanMinY + PanMaxY) / 2;
         }
 
         private void HandleEditorZoom()

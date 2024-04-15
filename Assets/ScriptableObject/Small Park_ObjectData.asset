@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad582748b0b04e4fae855ad77411673, type: 3}
+  m_Name: Small Park_ObjectData
+  m_EditorClassIdentifier: 
+  ObjectDict:
+    m_keys: 000000000100000002000000
+    m_values:
+    - ObjectID: 0
+      ObjectPreview: {fileID: 21300000, guid: 27e3cb24154d7cf42ae87f46b8173e8e, type: 3}
+      ObjectPrefab: {fileID: 2146890971756559242, guid: d3e5f811db7b2134ba4fa23c5f38ed45, type: 3}
+    - ObjectID: 1
+      ObjectPreview: {fileID: 21300000, guid: 474b32556b91deb4ca080ccf83e8d34d, type: 3}
+      ObjectPrefab: {fileID: 2146890971756559242, guid: 74de58c1231035c4e98d4893e15fdd66, type: 3}
+    - ObjectID: 2
+      ObjectPreview: {fileID: 21300000, guid: 0ceb60b4e44eef1478319226c844755c, type: 3}
+      ObjectPrefab: {fileID: 2146890971756559242, guid: 27d5a20e04362b44d978c6f3f5cf1870, type: 3}
+  RemoveObjectID: 0

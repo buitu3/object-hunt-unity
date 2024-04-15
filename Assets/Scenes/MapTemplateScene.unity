@@ -153,7 +153,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 366297608}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &343089882
@@ -168,28 +169,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c14313c6b587ba540975097178fff4fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentMapData: {fileID: 11400000, guid: 8140e4e965731944c8ec72d3a7f185e6, type: 2}
-  CurrentMapObjectData: {fileID: 11400000, guid: 3e5a8da3c2b732e4b8a4b6b21a6877bb, type: 2}
+  CurrentMapData: {fileID: 11400000, guid: a1dd80251d2c035479799b947d28482b, type: 2}
+  CurrentMapObjectData: {fileID: 11400000, guid: 2ee9d2f653240244081e3f9d56a81b66, type: 2}
   AreaDatas:
   - AreaName: Area1
     MapObjLst:
     - ObjectID: 0
       Preview: {fileID: 21300000, guid: 27e3cb24154d7cf42ae87f46b8173e8e, type: 3}
-      Count: 1
+      Count: 2
       ObjsInMap:
       - {fileID: 0}
-      RepresentArea: {fileID: 0}
+      - {fileID: 0}
+      RepresentArea: {fileID: 366297609}
       RepresentObj: {fileID: 2146890971756559242, guid: d3e5f811db7b2134ba4fa23c5f38ed45, type: 3}
-    RepresentArea: {fileID: 0}
+    - ObjectID: 1
+      Preview: {fileID: 21300000, guid: 474b32556b91deb4ca080ccf83e8d34d, type: 3}
+      Count: 2
+      ObjsInMap:
+      - {fileID: 0}
+      - {fileID: 0}
+      RepresentArea: {fileID: 366297609}
+      RepresentObj: {fileID: 2146890971756559242, guid: 74de58c1231035c4e98d4893e15fdd66, type: 3}
+    - ObjectID: 2
+      Preview: {fileID: 21300000, guid: 0ceb60b4e44eef1478319226c844755c, type: 3}
+      Count: 2
+      ObjsInMap:
+      - {fileID: 0}
+      - {fileID: 0}
+      RepresentArea: {fileID: 366297609}
+      RepresentObj: {fileID: 2146890971756559242, guid: 27d5a20e04362b44d978c6f3f5cf1870, type: 3}
+    RepresentArea: {fileID: 366297609}
   - AreaName: Area2
     MapObjLst:
     - ObjectID: 0
       Preview: {fileID: 21300000, guid: 27e3cb24154d7cf42ae87f46b8173e8e, type: 3}
-      Count: 0
-      ObjsInMap: []
-      RepresentArea: {fileID: 0}
+      Count: 2
+      ObjsInMap:
+      - {fileID: 0}
+      - {fileID: 0}
+      RepresentArea: {fileID: 366297607}
       RepresentObj: {fileID: 2146890971756559242, guid: d3e5f811db7b2134ba4fa23c5f38ed45, type: 3}
-    RepresentArea: {fileID: 0}
+    - ObjectID: 1
+      Preview: {fileID: 21300000, guid: 474b32556b91deb4ca080ccf83e8d34d, type: 3}
+      Count: 1
+      ObjsInMap:
+      - {fileID: 0}
+      RepresentArea: {fileID: 366297607}
+      RepresentObj: {fileID: 2146890971756559242, guid: 74de58c1231035c4e98d4893e15fdd66, type: 3}
+    - ObjectID: 2
+      Preview: {fileID: 21300000, guid: 0ceb60b4e44eef1478319226c844755c, type: 3}
+      Count: 1
+      ObjsInMap:
+      - {fileID: 0}
+      RepresentArea: {fileID: 366297607}
+      RepresentObj: {fileID: 2146890971756559242, guid: 27d5a20e04362b44d978c6f3f5cf1870, type: 3}
+    RepresentArea: {fileID: 366297607}
 --- !u!114 &343089883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,8 +237,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MapDataCollection: {fileID: 11400000, guid: 1bd730301f9a90840b2f3c5d225b6958, type: 2}
-  MapName: MapTest02
-  MapPreview: {fileID: 21300000, guid: 4afc323f79bc2584ea6fd8c827bee0d3, type: 3}
+  MapName: Small Park
+  MapPreview: {fileID: 21300000, guid: d3972d86d2bde424d8a75acbeb6b5398, type: 3}
   NumberOfArea: 2
   NumOfAreaInAColumn: 2
   BGsRowInArea: 2
@@ -212,16 +246,100 @@ MonoBehaviour:
   MapAreaBGLst:
     list:
     - list:
-      - {fileID: -580183443, guid: 7d90e80ecc78de34487f06505d521faf, type: 3}
-      - {fileID: -1684681227, guid: 7d90e80ecc78de34487f06505d521faf, type: 3}
-      - {fileID: 1185178416, guid: 7d90e80ecc78de34487f06505d521faf, type: 3}
-      - {fileID: 535236243, guid: 7d90e80ecc78de34487f06505d521faf, type: 3}
+      - {fileID: -1987071666, guid: c9bc59cda5ec5e44e8d6ca9f003224ae, type: 3}
+      - {fileID: -642740936, guid: c9bc59cda5ec5e44e8d6ca9f003224ae, type: 3}
+      - {fileID: -882870084, guid: c9bc59cda5ec5e44e8d6ca9f003224ae, type: 3}
+      - {fileID: -1352456157, guid: c9bc59cda5ec5e44e8d6ca9f003224ae, type: 3}
     - list:
-      - {fileID: 699855556, guid: 7d90e80ecc78de34487f06505d521faf, type: 3}
-      - {fileID: 443953448, guid: 7d90e80ecc78de34487f06505d521faf, type: 3}
-      - {fileID: 904105559, guid: 7d90e80ecc78de34487f06505d521faf, type: 3}
-      - {fileID: 213741117, guid: 7d90e80ecc78de34487f06505d521faf, type: 3}
+      - {fileID: -104486388, guid: c9bc59cda5ec5e44e8d6ca9f003224ae, type: 3}
+      - {fileID: -1461970694, guid: c9bc59cda5ec5e44e8d6ca9f003224ae, type: 3}
+      - {fileID: -1665540344, guid: c9bc59cda5ec5e44e8d6ca9f003224ae, type: 3}
+      - {fileID: 2088572068, guid: c9bc59cda5ec5e44e8d6ca9f003224ae, type: 3}
   ImportMapData: {fileID: 0}
+--- !u!1001 &366297606
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 343089881}
+    m_Modifications:
+    - target: {fileID: 3177573585893140092, guid: 237671e412ca5344db0bb31fac085e8d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3177573585893140092, guid: 237671e412ca5344db0bb31fac085e8d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3177573585893140092, guid: 237671e412ca5344db0bb31fac085e8d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3177573585893140092, guid: 237671e412ca5344db0bb31fac085e8d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3177573585893140092, guid: 237671e412ca5344db0bb31fac085e8d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3177573585893140092, guid: 237671e412ca5344db0bb31fac085e8d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3177573585893140092, guid: 237671e412ca5344db0bb31fac085e8d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3177573585893140092, guid: 237671e412ca5344db0bb31fac085e8d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3177573585893140092, guid: 237671e412ca5344db0bb31fac085e8d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3177573585893140092, guid: 237671e412ca5344db0bb31fac085e8d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416024822954389052, guid: 237671e412ca5344db0bb31fac085e8d, type: 3}
+      propertyPath: m_Name
+      value: Small Park
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 237671e412ca5344db0bb31fac085e8d, type: 3}
+--- !u!114 &366297607 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 923896530405593282, guid: 237671e412ca5344db0bb31fac085e8d, type: 3}
+  m_PrefabInstance: {fileID: 366297606}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d48817aad5ff6d408839f4d304b4356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &366297608 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3177573585893140092, guid: 237671e412ca5344db0bb31fac085e8d, type: 3}
+  m_PrefabInstance: {fileID: 366297606}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &366297609 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3577596121124423537, guid: 237671e412ca5344db0bb31fac085e8d, type: 3}
+  m_PrefabInstance: {fileID: 366297606}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d48817aad5ff6d408839f4d304b4356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1889740052
 GameObject:
   m_ObjectHideFlags: 0

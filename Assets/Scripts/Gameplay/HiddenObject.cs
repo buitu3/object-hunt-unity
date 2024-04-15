@@ -30,7 +30,6 @@ namespace OjbectHunt.Map
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            Debug.LogError("Object clicked");
             OnObjectClickedHandler();
         }
 

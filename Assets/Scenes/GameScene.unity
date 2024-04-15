@@ -262,7 +262,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -388,18 +388,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4095e89a77846c4fab3305ca0fe5828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BGSpriteLst:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   ZoomEnable: 1
-  ZoomMin: 3
-  ZoomMax: 10
+  ZoomMin: 6
+  ZoomMax: 14
   PanEnable: 1
 --- !u!1 &800167424
 GameObject:
@@ -580,6 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec1bf8d361a0998499b8e12ee08883b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentLevel: {fileID: 0}
 --- !u!1 &1846965335
 GameObject:
   m_ObjectHideFlags: 0
