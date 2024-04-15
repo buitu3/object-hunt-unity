@@ -340,60 +340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d48817aad5ff6d408839f4d304b4356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1889740052
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1889740053}
-  - component: {fileID: 1889740054}
-  m_Layer: 0
-  m_Name: AreaCreator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1889740053
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1889740052}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1889740054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1889740052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c0d765a5cb8612489cb08c436ab5cce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MapDataCollection: {fileID: 0}
-  MapName: 
-  MapPreview: {fileID: 0}
-  NumberOfArea: 0
-  NumOfAreaInAColumn: 0
-  BGsRowInArea: 0
-  BGsColumnInArea: 0
-  MapAreaBGLst:
-    list: []
-  ImportMapData: {fileID: 0}
 --- !u!1 &1928682150
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,5 +437,4 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1928682153}
-  - {fileID: 1889740053}
   - {fileID: 343089881}

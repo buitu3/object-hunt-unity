@@ -80,7 +80,7 @@ namespace OjbectHunt.Editor
 
         private void OnInspectorInit()
         {
-            CurrentMapObjectData.OnObjDictSizeChanged = ReloadObjectsInArea;
+            if(CurrentMapObjectData != null) CurrentMapObjectData.OnObjDictSizeChanged = ReloadObjectsInArea;
         }
         
         [Button(ButtonSizes.Large), GUIColor(0.5f, 0.5f, 0.8f)]
