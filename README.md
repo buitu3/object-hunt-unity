@@ -11,7 +11,7 @@ This is an attemp to recreate a finding hidden object game such as [Find It Out 
 Open the current project folder using Unity 2022 LTS version. For the specific Unity version required for the current project, please check this file:  [ProjectVersion](ProjectSettings/ProjectVersion.txt). In theory, any Unity 2022 LTS version should work. You can also try a lower version to see if it builds (2021 LTS should work as well). 
 
 ## Editor Tool guides
-  - Guide for creating level tool can be found [here]()
+  - Guide for creating level tool can be found [here](Guides/CreateMapGuide.md)
 
 ## Features to be added in the future
   - Gameplay features: complete the gameflow, add more decorations to the map, implement addressable for level resources...
